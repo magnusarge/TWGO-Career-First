@@ -5,3 +5,6 @@ TWGO Career First! browser extension is intended for better access to those Tiny
 This extension pins Career mode tracks to the top of the leaderboards page on tinywhoopgo.com website.
 
 It also highlights user's pilot name on leaderboards for better accessibility.
+
+[Tiny Whoop GO flight simulator](https://tinywhoopgo.com)
+[Leaderboards](https://tinywhoopgo.com/leaderboards)
