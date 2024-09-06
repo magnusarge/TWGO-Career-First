@@ -7,7 +7,7 @@ function updateName(restoredSettings) {
 function onError(e) {
     console.error(e);
 }
-const gettingStoredSettings = browser.storage.local.get();
+const gettingStoredSettings = chrome.storage.local.get();
 gettingStoredSettings.then(updateName, onError);
 
 

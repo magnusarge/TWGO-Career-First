@@ -4,7 +4,7 @@ const pilotNameInput = document.querySelector("#pilotName");
 Store the currently selected settings using browser.storage.local.
 */
 function storeSettings() {
-    browser.storage.local.set({
+    chrome.storage.local.set({
       pilotName: pilotNameInput.value || ""
     });
 }
@@ -24,7 +24,7 @@ function onError(e) {
 /*
 On opening the options page, fetch stored settings and update the UI with them.
 */
-const gettingStoredSettings = browser.storage.local.get();
+const gettingStoredSettings = chrome.storage.local.get();
 gettingStoredSettings.then(updateUI, onError);
 
 /*
