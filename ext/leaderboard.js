@@ -52,6 +52,16 @@ if ( document.title == "Leaderboards" ) { // tinywhoopgo.com/leaderboards
             '3734g8m7C3k2v3W5X4': {title: "Flip Flop Drop", groupIndex: 1},
             'r7B4a826U5W2r3C692': {title: "Left to go Right", groupIndex: 1},
             'x7f4E7T9e6A9c2q3E4': {title: "Chinese Courtyard Medium", groupIndex: 1},
+            '57Q4I769A6d819o8r9': {title: "Mowing Rabbit Island", groupIndex: 2},
+            '37o4o857p1L6B810M7': {title: "Platform Panic", groupIndex: 2},
+            'q7P4Y9H5G5h9l5a2f0': {title: "Precision at Speed", groupIndex: 2},
+            'L705P2T2d1a8g057M3': {title: "Tossing Hay Bales", groupIndex: 2},
+            'H7c532s259m1Q8i9T3': {title: "Between the Trees", groupIndex: 2},
+            'y7V582A370K0I9f660': {title: "Big Swing", groupIndex: 2},
+            'U7b5A2O6d8l8Y8I9t4': {title: "Tiny Gates at Whoophaus", groupIndex: 2},
+            'W7Z5V253C059p0P6J9': {title: "Red Ribbon Raceway", groupIndex: 2},
+            'J745s203U7A4e342q3': {title: "Over Under", groupIndex: 2},
+            'm7T552r3K8i3d610k6': {title: "The Final Rush", groupIndex: 2},
         }
     };
 
