@@ -24,9 +24,6 @@ function getIdFromTitleCode(titleCode) {
 
 if ( document.title == "Leaderboards" ) { // tinywhoopgo.com/leaderboards
 
-    const favoritesContainer = document.createElement("div");
-    const listOfTrackContainers = document.querySelectorAll("div.container");
-
     const favorites = {
         groupTitles: ["Novice","Intermediate","Pro"],
         domBuffer: {}, // {id1: dom, id1: dom, ..}
@@ -65,8 +62,10 @@ if ( document.title == "Leaderboards" ) { // tinywhoopgo.com/leaderboards
         }
     };
 
+    const listOfTrackContainers = document.querySelectorAll("div.container");
+
     for (const trackContainer of listOfTrackContainers) {
-        // Copy nodes to buffer
+        // Copy track containers to favorites.domBuffer
 
         const trackImage = trackContainer.querySelector("img");
 
@@ -80,14 +79,14 @@ if ( document.title == "Leaderboards" ) { // tinywhoopgo.com/leaderboards
 
                 if ( favorites.ids[id] ) {
 
-                    favorites.domBuffer[id] = trackContainer//.cloneNode(true);
+                    favorites.domBuffer[id] = trackContainer;
                 }   
             }
         } 
     }
 
     for ( const item in favorites.ids ) {
-        // Copy nodes from buffer to groups
+        // Copy nodes from favorites.domBuffer to favorites.domItems[groupTitle]
 
         if ( favorites.domBuffer[item] ) {
 
@@ -95,7 +94,7 @@ if ( document.title == "Leaderboards" ) { // tinywhoopgo.com/leaderboards
             const groupTitle = favorites.groupTitles[groupIndex];
 
             if ( !favorites.domItems[groupTitle] ) {
-
+                // If group doesn't exist
                 favorites.domItems[groupTitle] = [];
             }
 
@@ -104,10 +103,13 @@ if ( document.title == "Leaderboards" ) { // tinywhoopgo.com/leaderboards
     }
 
     for ( const favorite in favorites.domItems ) {
-        // Put nodes to page
+        // Put nodes from favorites.domItems[favorite] to favoritesContainer
 
         const groupTitle = document.createElement("h3");
         groupTitle.textContent = "Career: " + favorite;
+
+        // Create container
+        const favoritesContainer = document.createElement("div");
         favoritesContainer.appendChild(groupTitle);
 
         if ( favorite.length ) {
@@ -119,7 +121,7 @@ if ( document.title == "Leaderboards" ) { // tinywhoopgo.com/leaderboards
         }
     }
 
-    // Put favorites to the top of the page
+    // Put favoritesContainer to the top of the page
     const list = document.querySelectorAll("td")
     list[1].insertBefore(favoritesContainer, list[1].children[5]);
 
@@ -127,6 +129,10 @@ if ( document.title == "Leaderboards" ) { // tinywhoopgo.com/leaderboards
 
 ///////////// LEADERBOARD tinywhoopgo.com/leaderboard
 function modifyTable() {
+    // Duplicate saved pilot's row and put it to the top of the table
+    // for better accessibility.
+    // Also change both rows text to yellow
+
     if(document.title == "Leaderboard") {
 
         const leaderboardTable = document.querySelector('table[width="Auto"]');
@@ -149,7 +155,7 @@ function modifyTable() {
                         const pilotPlaceNo = cells[0].textContent;
 
                         const copyOfPilotRow = tr.cloneNode(true);
-                        cells[1].textContent = "*";
+                        cells[1].textContent = "";
                         tr.style.color = "yellow";
 
                         copyOfPilotRow.id = "pilot";
